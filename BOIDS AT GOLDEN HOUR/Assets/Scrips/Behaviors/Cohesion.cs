@@ -16,8 +16,10 @@ public class Cohesion : MonoBehaviour
 
         foreach(var neighbour in boid.localNeighbours)
         {
-            pos = pos + neighbour.Position; 
+            pos += neighbour.Position; 
         }
-        return pos / boid.localNeighbours.Count; 
+        pos /= boid.localNeighbours.Count;
+
+        return pos; 
     }
 }

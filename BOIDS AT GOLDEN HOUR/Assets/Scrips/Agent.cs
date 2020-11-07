@@ -16,7 +16,7 @@ public class Agent : MonoBehaviour
     public List<Agent> Neighbours = new List<Agent>();
 
     // Neighbours which are in visual range 
-    public List<Agent> surroundingNeighbours = new List<Agent>();
+    public List<Agent> localNeighbours = new List<Agent>();
 
     // how far Agent can see
     public int Distance = 5; 
@@ -24,8 +24,9 @@ public class Agent : MonoBehaviour
 
     void Update()
     {
-        // Update position
+        // Update current position
         Position = transform.position;
+
 
         //Update surrounding neighbours
         UpdateNeighbours(); 
@@ -37,13 +38,13 @@ public class Agent : MonoBehaviour
     {
         foreach(var neighbour in Neighbours)
         {
-            if(Vector3.Distance(neighbour.Position, Position) <= Distance && !surroundingNeighbours.Contains(neighbour))
+            if(Vector3.Distance(neighbour.Position, Position) <= Distance && !localNeighbours.Contains(neighbour))
             {
-                surroundingNeighbours.Add(neighbour);
+                localNeighbours.Add(neighbour);
             }
-            else if(Vector3.Distance(neighbour.Position, Position) > Distance && surroundingNeighbours.Contains(neighbour))
+            else if(Vector3.Distance(neighbour.Position, Position) > Distance && localNeighbours.Contains(neighbour))
             {
-                surroundingNeighbours.Remove(neighbour); 
+                localNeighbours.Remove(neighbour); 
             }
         }
     }

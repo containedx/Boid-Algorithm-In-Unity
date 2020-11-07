@@ -6,10 +6,10 @@ public class Flock : MonoBehaviour
 {
     // List of All Agents
     public int count = 100; 
-    List<Agent> agents = new List<Agent>();
+    List<Boid> boids = new List<Boid>();
 
     // Agent Prefab
-    public Agent prefab; 
+    public Boid prefab; 
 
     void Start()
     {
@@ -18,24 +18,24 @@ public class Flock : MonoBehaviour
             Vector3 randomPosition = Camera.main.ScreenToWorldPoint(new Vector3(Random.Range(0, Screen.width), Random.Range(0,Screen.height), Camera.main.farClipPlane/10));
             Quaternion randomRotation = Quaternion.Euler(Vector3.forward * Random.Range(0f, 360f));
 
-            Agent newAgent = Instantiate(
+            Boid newBoid = Instantiate(
                 prefab,
                 randomPosition,
                 randomRotation,
                 transform
             );
 
-            newAgent.name = "agent" + i;
-            agents.Add(newAgent); 
+            newBoid.name = "boid " + i;
+            boids.Add(newBoid); 
         }
 
         // Create List of Neighbours for each agent
-        foreach(var agent in agents)
+        foreach(var boid in boids)
         {
-            foreach(var a in agents)
+            foreach(var a in boids)
             {
-                if (a != agent)
-                    agent.Neighbours.Add(a); 
+                if (a != boid)
+                    boid.Neighbours.Add(a); 
             }
         }
     }

@@ -4,15 +4,8 @@ using UnityEngine;
 
 public class Separation : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void CalculateSeparation(Boid agent)
     {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

@@ -5,19 +5,19 @@ using UnityEngine.UIElements;
 
 public class Cohesion : MonoBehaviour
 {
-    public Vector3 CalculateCohesion(Agent agent)
+    public Vector3 CalculateCohesion(Boid boid)
     {
         // Calculate average position of local neighbourhood
 
         Vector3 pos = Vector3.zero;
 
-        if (agent.localNeighbours.Count == 0)
+        if (boid.localNeighbours.Count == 0)
             return pos; 
 
-        foreach(var neighbour in agent.localNeighbours)
+        foreach(var neighbour in boid.localNeighbours)
         {
             pos = pos + neighbour.Position; 
         }
-        return pos / agent.localNeighbours.Count; 
+        return pos / boid.localNeighbours.Count; 
     }
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Agent : MonoBehaviour
+public class Boid : MonoBehaviour
 {
     public float Speed;
 
@@ -13,10 +13,10 @@ public class Agent : MonoBehaviour
     public Vector3 Velocity; 
 
     // List of Neighbours - all other agents
-    public List<Agent> Neighbours = new List<Agent>();
+    public List<Boid> Neighbours = new List<Boid>();
 
     // Neighbours which are in visual range 
-    public List<Agent> localNeighbours = new List<Agent>();
+    public List<Boid> localNeighbours = new List<Boid>();
 
     // how far Agent can see
     public int Distance = 5; 

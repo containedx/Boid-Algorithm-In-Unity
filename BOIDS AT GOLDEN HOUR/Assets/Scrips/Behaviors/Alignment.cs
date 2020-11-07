@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class Alignment : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public Vector3 CalculateAlignment(Boid boid)
     {
-        
-    }
+        // Calculate average velocities of local neighbourhood
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Vector3 v = Vector3.zero;
+
+        if (boid.localNeighbours.Count == 0)
+            return v;
+
+        foreach(var neighbour in boid.localNeighbours)
+        {
+            v += neighbour.Velocity; 
+        }
+        v /= boid.localNeighbours.Count;
+
+        v = Vector3.Normalize(v - boid.Velocity);
+
+        return v; 
     }
 }

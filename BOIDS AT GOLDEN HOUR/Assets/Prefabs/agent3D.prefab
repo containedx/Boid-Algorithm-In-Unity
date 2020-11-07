@@ -45,7 +45,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f9d22f7a286eac4cabf6854b81686c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  Speed: 0
+  Position: {x: 0, y: 0, z: 0}
+  Velocity: {x: 0, y: 0, z: 0}
+  Neighbours: []
+  surroundingNeighbours: []
+  Distance: 5
 --- !u!114 &6982302401615512464
 MonoBehaviour:
   m_ObjectHideFlags: 0

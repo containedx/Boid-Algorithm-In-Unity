@@ -327,6 +327,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   count: 100
   prefab: {fileID: -1635263449793292892, guid: 8b953cf07b5a7af47bf7c11ab713a7c5, type: 3}
+  maxVelocity: 0
 --- !u!4 &1228686795
 Transform:
   m_ObjectHideFlags: 0

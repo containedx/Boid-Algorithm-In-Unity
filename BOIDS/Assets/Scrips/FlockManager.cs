@@ -9,7 +9,9 @@ public class FlockManager : MonoBehaviour
     List<Boid> boids = new List<Boid>();
 
     // Agent Prefab
-    public Boid prefab; 
+    public Boid prefab;
+
+    public float maxVelocity;
 
     void Start()
     {
@@ -19,17 +21,47 @@ public class FlockManager : MonoBehaviour
    
     void Update()
     {
-        /*
-         * for each boid
-         * 
-         * apply behaviors
-         * calculate position
-         * calculate velocity
-         * 
-         * */
+        UpdateMovement(); 
     }
 
     // ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    private void UpdateMovement()
+    {
+        foreach(var boid in boids)
+        {
+            CalculateMove(boid); 
+            
+        }
+    }
+
+    private void CalculateMove(Boid boid)
+    {
+        Vector3 cohesionVector, separationVector, alignmentVector;
+        // calculate behaviours
+        cohesionVector = Cohesion.CalculateCohesion(boid);
+        separationVector = Separation.CalculateSeparation(boid);
+        alignmentVector = Alignment.CalculateAlignment(boid);
+
+        // calculate vector
+        var newVelocity = boid.Velocity + cohesionVector + separationVector + alignmentVector;
+        var newPosition = boid.Position + newVelocity;
+
+        // limit 
+        newVelocity = LimitVelocity(newVelocity);
+
+        boid.UpdateMove(newPosition, newVelocity);
+    }
+
+    private Vector3 LimitVelocity(Vector3 velocity)
+    {
+        if(velocity.magnitude > maxVelocity)
+        {
+            velocity /= velocity.magnitude;
+            velocity *= maxVelocity; 
+        }
+        return velocity; 
+    }
 
     private void InitFlock()
     {

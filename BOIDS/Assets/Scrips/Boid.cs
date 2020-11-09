@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Boid : MonoBehaviour
 {
-    public float Speed;
+    public Rigidbody rigidBody;
 
     // current position
     public Vector3 Position;
@@ -19,22 +19,42 @@ public class Boid : MonoBehaviour
     public List<Boid> localNeighbours = new List<Boid>();
 
     // how far Agent can see
-    public int Distance = 5; 
+    public int Distance;
 
+    void Start()
+    {
+        // Init
+
+        Position = transform.position;
+        Velocity = rigidBody.velocity;
+        //rigidBody.velocity = Velocity;
+
+
+    }
 
     void Update()
     {
-        // Update current position
-        Position = transform.position;
-
-
         //Update surrounding neighbours
-        UpdateNeighbours(); 
-
-        //transform.Translate(Vector3.up * Speed * Time.deltaTime);
+        UpdateNeighbours();   
     }
 
-    public void UpdateNeighbours()
+    // ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    public void UpdateMove(Vector3 position, Vector3 velocity)
+    {
+        //Position = position;
+        //Velocity = velocity;
+        //rigidBody.velocity = Velocity; 
+        //transform.Translate(Vector3.up * Time.deltaTime);
+        //transform.position += Velocity * Time.deltaTime;
+
+        Position = position;
+        Velocity = velocity;
+        gameObject.transform.position = position;
+        gameObject.transform.rotation = Quaternion.LookRotation(Vector3.Normalize(velocity));
+    }
+
+    private void UpdateNeighbours()
     {
         foreach(var neighbour in Neighbours)
         {

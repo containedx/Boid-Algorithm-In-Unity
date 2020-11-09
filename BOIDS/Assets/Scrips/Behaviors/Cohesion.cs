@@ -1,11 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
-using UnityEngine.UIElements;
 
-public class Cohesion : MonoBehaviour
+public class Cohesion
 {
-    public Vector3 CalculateCohesion(Boid boid)
+    public static Vector3 CalculateCohesion(Boid boid)
     {
         // Calculate average position of local neighbourhood
 

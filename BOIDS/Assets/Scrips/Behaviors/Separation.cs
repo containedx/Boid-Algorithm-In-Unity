@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
 
-public class Separation : MonoBehaviour
+public class Separation
 {
     //gives ability to keep safe distance from others (prevent crowding)
-    public int separationRadius = 1;
+    public static int separationRadius = 1;
 
-    public Vector3 CalculateSeparation(Boid boid)
+    public static Vector3 CalculateSeparation(Boid boid)
     {
         Vector3 v = Vector3.zero;
 

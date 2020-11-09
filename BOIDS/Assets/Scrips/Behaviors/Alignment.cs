@@ -1,10 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
 
-public class Alignment : MonoBehaviour
+public class Alignment
 {
-    public Vector3 CalculateAlignment(Boid boid)
+    public static Vector3 CalculateAlignment(Boid boid)
     {
         // Calculate average velocities of local neighbourhood
 

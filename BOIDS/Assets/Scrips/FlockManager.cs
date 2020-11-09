@@ -13,6 +13,9 @@ public class FlockManager : MonoBehaviour
 
     public float maxVelocity;
 
+    // target Object
+    public Transform Target;
+
     //Weights
     [Range(0,1)]
     public float cohesionWeight;
@@ -44,14 +47,15 @@ public class FlockManager : MonoBehaviour
 
     private void CalculateMove(Boid boid)
     {
-        Vector3 cohesionVector, separationVector, alignmentVector;
+        Vector3 cohesionVector, separationVector, alignmentVector, seekVector;
         // calculate behaviours
         cohesionVector = Cohesion.CalculateCohesion(boid) * cohesionWeight;
         separationVector = Separation.CalculateSeparation(boid) * separationWeight;
         alignmentVector = Alignment.CalculateAlignment(boid) * alignmentWeight;
+        seekVector = Seek.CalculateSeek(boid, Target);
 
         // calculate vector
-        var newVelocity = boid.Velocity + cohesionVector + separationVector + alignmentVector;
+        var newVelocity = boid.Velocity + cohesionVector + separationVector + alignmentVector + seekVector;
         var newPosition = boid.Position + newVelocity;
 
         // limit 

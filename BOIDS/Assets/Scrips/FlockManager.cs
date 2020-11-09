@@ -13,6 +13,14 @@ public class FlockManager : MonoBehaviour
 
     public float maxVelocity;
 
+    //Weights
+    [Range(0,1)]
+    public float cohesionWeight;
+    [Range(0, 1)]
+    public float alignmentWeight;
+    [Range(0, 1)]
+    public float separationWeight;
+
     void Start()
     {
         InitFlock();
@@ -30,8 +38,7 @@ public class FlockManager : MonoBehaviour
     {
         foreach(var boid in boids)
         {
-            CalculateMove(boid); 
-            
+            CalculateMove(boid);
         }
     }
 
@@ -39,9 +46,9 @@ public class FlockManager : MonoBehaviour
     {
         Vector3 cohesionVector, separationVector, alignmentVector;
         // calculate behaviours
-        cohesionVector = Cohesion.CalculateCohesion(boid);
-        separationVector = Separation.CalculateSeparation(boid);
-        alignmentVector = Alignment.CalculateAlignment(boid);
+        cohesionVector = Cohesion.CalculateCohesion(boid) * cohesionWeight;
+        separationVector = Separation.CalculateSeparation(boid) * separationWeight;
+        alignmentVector = Alignment.CalculateAlignment(boid) * alignmentWeight;
 
         // calculate vector
         var newVelocity = boid.Velocity + cohesionVector + separationVector + alignmentVector;
@@ -60,7 +67,7 @@ public class FlockManager : MonoBehaviour
             velocity /= velocity.magnitude;
             velocity *= maxVelocity; 
         }
-        return velocity; 
+        return velocity;
     }
 
     private void InitFlock()

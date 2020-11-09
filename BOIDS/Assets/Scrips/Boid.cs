@@ -10,7 +10,7 @@ public class Boid : MonoBehaviour
     public Vector3 Position;
 
     // current Velocity
-    public Vector3 Velocity; 
+    public Vector3 Velocity;
 
     // List of Neighbours - all other agents
     public List<Boid> Neighbours = new List<Boid>();
@@ -24,12 +24,9 @@ public class Boid : MonoBehaviour
     void Start()
     {
         // Init
-
+        rigidBody = GetComponent<Rigidbody>();
         Position = transform.position;
         Velocity = rigidBody.velocity;
-        //rigidBody.velocity = Velocity;
-
-
     }
 
     void Update()
@@ -42,12 +39,6 @@ public class Boid : MonoBehaviour
 
     public void UpdateMove(Vector3 position, Vector3 velocity)
     {
-        //Position = position;
-        //Velocity = velocity;
-        //rigidBody.velocity = Velocity; 
-        //transform.Translate(Vector3.up * Time.deltaTime);
-        //transform.position += Velocity * Time.deltaTime;
-
         Position = position;
         Velocity = velocity;
         gameObject.transform.position = position;

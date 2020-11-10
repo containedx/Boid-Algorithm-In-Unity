@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4522532340210530807}
   - component: {fileID: -1635263449793292892}
   - component: {fileID: 3556293484376076806}
+  - component: {fileID: 6625662528761107431}
   m_Layer: 0
   m_Name: agent3D
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 619274546874158052}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.5365086, y: 7.3381357, z: -6.365931}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.35}
   m_Children:
   - {fileID: 3580870538609444179}
   m_Father: {fileID: 0}
@@ -67,6 +68,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!135 &6625662528761107431
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 619274546874158052}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5110176138997620640
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,7 +108,7 @@ Transform:
   m_GameObject: {fileID: 5110176138997620640}
   m_LocalRotation: {x: -0.056306988, y: 0.054153547, z: -0.69107246, w: 0.7185512}
   m_LocalPosition: {x: 6.68, y: -7.29, z: 22.95}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.35}
+  m_LocalScale: {x: 1, y: 1, z: 1.1}
   m_Children: []
   m_Father: {fileID: 4522532340210530807}
   m_RootOrder: 0

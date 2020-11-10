@@ -11,7 +11,7 @@ public class FlockManager : MonoBehaviour
     // Agent Prefab
     public Boid prefab;
 
-    public float maxVelocity;
+    public float maxSpeed;
 
     // target Object
     public Transform Target;
@@ -52,7 +52,7 @@ public class FlockManager : MonoBehaviour
         cohesionVector = Cohesion.CalculateCohesion(boid) * cohesionWeight;
         separationVector = Separation.CalculateSeparation(boid) * separationWeight;
         alignmentVector = Alignment.CalculateAlignment(boid) * alignmentWeight;
-        seekVector = Seek.CalculateSeek(boid, Target);
+        seekVector = Seek.CalculateSeek(boid, Target, maxSpeed);
 
         // calculate vector
         var newVelocity = boid.Velocity + cohesionVector + separationVector + alignmentVector + seekVector;
@@ -66,10 +66,10 @@ public class FlockManager : MonoBehaviour
 
     private Vector3 LimitVelocity(Vector3 velocity)
     {
-        if(velocity.magnitude > maxVelocity)
+        if(velocity.magnitude > maxSpeed)
         {
             velocity /= velocity.magnitude;
-            velocity *= maxVelocity; 
+            velocity *= maxSpeed; 
         }
         return velocity;
     }

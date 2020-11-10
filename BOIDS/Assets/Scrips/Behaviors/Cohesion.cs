@@ -17,6 +17,7 @@ public class Cohesion
             pos += neighbour.Position; 
         }
         pos /= boid.localNeighbours.Count;
+        pos /= 100;
 
         return pos; 
     }

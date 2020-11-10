@@ -24,6 +24,10 @@ public class FlockManager : MonoBehaviour
     [Range(0, 1)]
     public float separationWeight;
 
+    //Arrive
+    public float arriveSlowingDistance;
+    public float arriveMaxSpeed;
+
     void Start()
     {
         InitFlock();
@@ -47,15 +51,16 @@ public class FlockManager : MonoBehaviour
 
     private void CalculateMove(Boid boid)
     {
-        Vector3 cohesionVector, separationVector, alignmentVector, seekVector;
+        Vector3 cohesionVector, separationVector, alignmentVector, seekVector, arriveVector;
         // calculate behaviours
         cohesionVector = Cohesion.CalculateCohesion(boid) * cohesionWeight;
         separationVector = Separation.CalculateSeparation(boid) * separationWeight;
         alignmentVector = Alignment.CalculateAlignment(boid) * alignmentWeight;
         seekVector = Seek.CalculateSeek(boid, Target, maxSpeed);
+        arriveVector = Arrive.CalculateArrive(boid, Target, arriveSlowingDistance, arriveMaxSpeed);
 
         // calculate vector
-        var newVelocity = boid.Velocity + cohesionVector + separationVector + alignmentVector + seekVector;
+        var newVelocity = boid.Velocity + cohesionVector + separationVector + alignmentVector + seekVector + arriveVector;
         var newPosition = boid.Position + newVelocity;
 
         // limit 

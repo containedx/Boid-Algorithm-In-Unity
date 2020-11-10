@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
-    [Range(30.0f,180.0f)]
+    [Range(0.0f,180.0f)]
     public float Speed; 
     void Update()
     {

@@ -317,6 +317,7 @@ GameObject:
   - component: {fileID: 866206266}
   - component: {fileID: 866206265}
   - component: {fileID: 866206264}
+  - component: {fileID: 866206267}
   m_Layer: 0
   m_Name: Ground(Terrain)
   m_TagString: Untagged
@@ -382,6 +383,20 @@ Transform:
   m_Father: {fileID: 1415773428}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &866206267
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 866206263}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -509,7 +524,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 653adb9a5b8abc946ae07153ea47c842, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 180
+  Speed: 0
 --- !u!1 &1228686793
 GameObject:
   m_ObjectHideFlags: 0
@@ -539,13 +554,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 923306b0cad45b947913b7f8506a2e34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  count: 100
+  count: 1
   prefab: {fileID: -1635263449793292892, guid: 8b953cf07b5a7af47bf7c11ab713a7c5, type: 3}
-  maxVelocity: 0.05
+  maxSpeed: 2
   Target: {fileID: 522725906}
-  cohesionWeight: 0.507
-  alignmentWeight: 0.279
-  separationWeight: 0.282
+  cohesionWeight: 0
+  alignmentWeight: 0
+  separationWeight: 0
+  arriveRadius: 2
+  arriveMaxSpeed: 0.2
 --- !u!4 &1228686795
 Transform:
   m_ObjectHideFlags: 0

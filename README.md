@@ -1,4 +1,3 @@
-### BOIDS-AT-GOLDEN-HOUR
 
 ## Visualisation Of Boids Algorithm in Unity
 

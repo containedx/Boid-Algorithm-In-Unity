@@ -62,7 +62,7 @@ public class FlockManager : MonoBehaviour
         arriveVector = Arrive.CalculateArrive(boid, Target, arriveSlowingDistance, arriveMaxSpeed);
 
         // calculate vector
-        var newVelocity = boid.Velocity + cohesionVector + separationVector + alignmentVector + seekVector;// + arriveVector;
+        var newVelocity = boid.Velocity + cohesionVector + separationVector + alignmentVector + seekVector + arriveVector;
         var newPosition = boid.Position + newVelocity;
 
         // limit 

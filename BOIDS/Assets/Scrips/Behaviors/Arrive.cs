@@ -11,13 +11,15 @@ public class Arrive : MonoBehaviour
         Vector3 desired = Vector3.zero;
 
         var offset = target.position - boid.Position;
-        var distance = Vector3.Distance(target.position, boid.Position);
+        var distance = offset.magnitude;
 
         var rampedSpeed = maxSpeed * (distance / slowingDistance);
         var clippedSpeed = Math.Min(rampedSpeed, maxSpeed);
 
-        desired = (clippedSpeed / distance) * offset;
+        if(distance>0)
+            desired = (clippedSpeed / distance) * offset;
 
-        return desired - boid.Velocity;
+        desired -= boid.Velocity;
+        return desired;
     }
 }

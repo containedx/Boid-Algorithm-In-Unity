@@ -524,7 +524,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 653adb9a5b8abc946ae07153ea47c842, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 0
+  Speed: 87.3
 --- !u!1 &1228686793
 GameObject:
   m_ObjectHideFlags: 0
@@ -554,15 +554,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 923306b0cad45b947913b7f8506a2e34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  count: 1
+  count: 50
   prefab: {fileID: -1635263449793292892, guid: 8b953cf07b5a7af47bf7c11ab713a7c5, type: 3}
-  maxSpeed: 2
+  maxSpeed: 0.13
   Target: {fileID: 522725906}
-  cohesionWeight: 0
-  alignmentWeight: 0
-  separationWeight: 0
-  arriveRadius: 2
-  arriveMaxSpeed: 0.2
+  cohesionWeight: 0.2
+  alignmentWeight: 0.2
+  separationWeight: 0.5
+  seekWeight: 3
+  arriveSlowingDistance: 2
+  arriveMaxSpeed: 0.13
 --- !u!4 &1228686795
 Transform:
   m_ObjectHideFlags: 0

@@ -90,7 +90,7 @@ public class FlockManager : MonoBehaviour
 
             Boid newBoid = Instantiate(
                 prefab,
-                randomPosition,
+                new Vector3(randomPosition.x, 0, randomPosition.z), // 0 => on ground //randomPosition,
                 randomRotation,
                 transform
             );

@@ -16,6 +16,9 @@ public class FlockManager : MonoBehaviour
     // target Object
     public Transform Target;
 
+    // Random Factors
+    public bool RandomFactors; 
+
     //Weights
     [Range(0,1)]
     public float cohesionWeight;
@@ -34,6 +37,10 @@ public class FlockManager : MonoBehaviour
     {
         InitFlock();
         CreateNeighbourhoods();
+        if(RandomFactors)
+        {
+            RandomizeFactors();
+        }
     }
    
     void Update()
@@ -90,7 +97,7 @@ public class FlockManager : MonoBehaviour
 
             Boid newBoid = Instantiate(
                 prefab,
-                new Vector3(randomPosition.x, 0, randomPosition.z), // 0 => on ground //randomPosition,
+                randomPosition,           //new Vector3(randomPosition.x, 0, randomPosition.z), // 0 => on ground //randomPosition,
                 randomRotation,
                 transform
             );
@@ -111,5 +118,14 @@ public class FlockManager : MonoBehaviour
                     boid.Neighbours.Add(a);
             }
         }
+    }
+
+    private void RandomizeFactors()
+    {
+        cohesionWeight = Random.Range(0.0f, 1.0f);
+        alignmentWeight = Random.Range(0.0f, 1.0f);
+        separationWeight = Random.Range(0.0f, 1.0f);
+
+        seekWeight = Random.Range(0.0f, 3.0f);
     }
 }

@@ -52,6 +52,8 @@ MonoBehaviour:
   Neighbours: []
   localNeighbours: []
   Distance: 15
+  Angle: 0
+  visualRange: {fileID: 0}
 --- !u!54 &3556293484376076806
 Rigidbody:
   m_ObjectHideFlags: 0

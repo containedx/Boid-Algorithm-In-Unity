@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms;
 
 public class FlockManager : MonoBehaviour
 {
@@ -32,6 +33,12 @@ public class FlockManager : MonoBehaviour
     //Arrive
     public float arriveSlowingDistance;
     public float arriveMaxSpeed;
+
+    // Visual Range - Field of View
+    [Range(0,50)]
+    public float Distance;
+    [Range(0,360)]
+    public float Angle;
 
     void Start()
     {
@@ -103,6 +110,9 @@ public class FlockManager : MonoBehaviour
             );
 
             newBoid.name = "boid " + i;
+            newBoid.Distance = Distance;
+            newBoid.Angle = Angle;
+
             boids.Add(newBoid);
         }
     }
@@ -127,5 +137,8 @@ public class FlockManager : MonoBehaviour
         separationWeight = Random.Range(0.0f, 1.0f);
 
         seekWeight = Random.Range(0.0f, 3.0f);
+
+        Angle = Random.Range(0.0f, 360.0f);
+        Distance = Random.Range(0.0f, 50.0f);
     }
 }

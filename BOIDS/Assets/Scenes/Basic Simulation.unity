@@ -558,12 +558,15 @@ MonoBehaviour:
   prefab: {fileID: -1635263449793292892, guid: 8b953cf07b5a7af47bf7c11ab713a7c5, type: 3}
   maxSpeed: 0.13
   Target: {fileID: 522725906}
-  cohesionWeight: 0.2
-  alignmentWeight: 0.2
+  RandomFactors: 0
+  cohesionWeight: 0.5
+  alignmentWeight: 0.5
   separationWeight: 0.5
   seekWeight: 3
   arriveSlowingDistance: 2
   arriveMaxSpeed: 0.13
+  Distance: 20
+  Angle: 60
 --- !u!4 &1228686795
 Transform:
   m_ObjectHideFlags: 0

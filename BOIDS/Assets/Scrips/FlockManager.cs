@@ -7,7 +7,7 @@ public class FlockManager : MonoBehaviour
 {
     // List of All Agents
     public int count = 100; 
-    List<Boid> boids = new List<Boid>();
+    public List<Boid> boids = new List<Boid>();
 
     // Agent Prefab
     public Boid prefab;

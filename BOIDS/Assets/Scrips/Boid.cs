@@ -51,9 +51,6 @@ public class Boid : MonoBehaviour
     {
         foreach(var neighbour in Neighbours)
         {
-            /* --- field of view = 360 == all around boid
-            if(Vector3.Distance(neighbour.Position, Position) <= Distance && !localNeighbours.Contains(neighbour)) */
-
             if (IsInFieldOfView(neighbour) && !localNeighbours.Contains(neighbour))
             {
                 localNeighbours.Add(neighbour);
@@ -77,8 +74,7 @@ public class Boid : MonoBehaviour
         //check distance and angle
         if (distanceCondition && angleCondition)
             return true;
-        else 
-            return false;
+        
+        return false;
     }
-
 }

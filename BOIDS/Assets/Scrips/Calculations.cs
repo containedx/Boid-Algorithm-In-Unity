@@ -10,7 +10,7 @@ public class Calculations : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MeasureHowFastTheyGetTogether();
+        //MeasureHowFastTheyGetTogether();
     }
 
 
@@ -23,7 +23,6 @@ public class Calculations : MonoBehaviour
         if (boids[i].localNeighbours.Count == Flock.count - 1)
         {
             MeasureTime();
-
         }
     }
 

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Calculations2 : MonoBehaviour
 {
+    public List<Boid> boids = new List<Boid>();
 
     private void OnTriggerEnter(Collider other)
     {
@@ -16,6 +17,6 @@ public class Calculations2 : MonoBehaviour
     public void MeasureTime()
     {
         var time = Time.realtimeSinceStartup;
-        Debug.Log(time);
+        Debug.Log("X2   :  " + time);
     }
 }

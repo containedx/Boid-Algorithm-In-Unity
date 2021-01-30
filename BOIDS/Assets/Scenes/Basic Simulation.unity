@@ -271,6 +271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95680477dd89f3544bbee43859c291f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boids: []
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -611,7 +612,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 923306b0cad45b947913b7f8506a2e34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  count: 50
+  count: 100
   boids: []
   prefab: {fileID: -1635263449793292892, guid: 8b953cf07b5a7af47bf7c11ab713a7c5, type: 3}
   maxSpeed: 0.13
@@ -623,8 +624,8 @@ MonoBehaviour:
   seekWeight: 3
   arriveSlowingDistance: 2
   arriveMaxSpeed: 0.13
-  Distance: 20
-  Angle: 360
+  Distance: 10
+  Angle: 180
 --- !u!4 &1228686795
 Transform:
   m_ObjectHideFlags: 0

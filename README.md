@@ -11,7 +11,10 @@ This repository includes basic simulation which presents boids algorithm, origin
 
 
 To present practical use of algorithm in game development, "Space Boids" was created. 
+
 You can see more details and play game here: [my itch.io page](https://containedx.itch.io/space-boids)
+
+Check also: [Game Repository](https://github.com/containedx/Space-Boids)
 
 ![](img/game.gif)
 
